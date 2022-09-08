@@ -21,7 +21,7 @@ export default function Home() {
 				<Header />
 				<main className='grid justify-items-stretch'>
           <StoreForm onSubmit={createLocationHandler}/>
-					<p className='justify-self-center'>Report Table Coming Soon...</p>
+					<p className='justify-self-center mb-12'>Report Table Coming Soon...</p>
 					<p>{location}</p>
         </main>
 				<Footer copyright='2022'/>
@@ -38,10 +38,10 @@ function Header() {
 	);
 }
 
-function StoreForm(props) {
+function StoreForm() {
 	return(
-		<form className='bg-emerald-300 mt-40 mb-40 mx-40 py-8 grid-justify-items-stretch'>
-			<legend className='justify-self-center'>Create Cookie Stand</legend>
+		<form className='bg-emerald-300 mt-40 mb-40 mx-40 py-8 grid-justify-items-stretch rounded-lg'>
+			<legend className='px-auto'>Create Cookie Stand</legend>
 			<label className='block my-2'>
 				Location
 				<input name='loc' type='text' placeholder='Enter city name here'></input>
