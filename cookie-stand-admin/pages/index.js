@@ -1,8 +1,17 @@
 import Head from 'next/head';
-import Image from 'next/image';
-import styles from '../styles/Home.module.css';
+import { useState } from 'react';
+
 
 export default function Home() {
+
+	const [location, setLocation] = useState("Enter a location")
+
+	function createLocationHandler(event) {
+		event.preventDefault();
+		setLocation(JSON.stringify({location: event.target.location.value, minCust: event.target.min.value, maxCust: event.target.max.value, avgCookie: event.target.avg.value}));
+		event.target.reset();
+	}
+
 	return (
 		<div>
 			<body className='bg-emerald-50'>
@@ -11,8 +20,9 @@ export default function Home() {
 				</Head>
 				<Header />
 				<main className='grid justify-items-stretch'>
-          <StoreForm />
+          <StoreForm onSubmit={createLocationHandler}/>
 					<p className='justify-self-center'>Report Table Coming Soon...</p>
+					<p>{location}</p>
         </main>
 				<Footer copyright='2022'/>
 			</body>
@@ -28,7 +38,7 @@ function Header() {
 	);
 }
 
-function StoreForm() {
+function StoreForm(props) {
 	return(
 		<form className='bg-emerald-300 mt-40 mb-40 mx-40 py-8 grid-justify-items-stretch'>
 			<legend className='justify-self-center'>Create Cookie Stand</legend>
