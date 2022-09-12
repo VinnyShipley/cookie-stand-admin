@@ -8,7 +8,7 @@ export default function Table({locations}) {
 			);
 		} else {
 			return(
-				<table> 
+				<table className="  "> 
 					<thead>
 						<tr>
 							<th>Location</th>
@@ -18,9 +18,9 @@ export default function Table({locations}) {
 					<tbody>
 						{locations.map(loc => (
 							<tr key={loc.location}>
-								<td>{loc.location}</td>
+								<td className="text-center">{loc.location}</td>
 								{hourly_sales.map((sales,idx) => (
-									<td key={idx}>{sales}</td>
+									<td className="text-center" key={idx}>{sales}</td>
 								))}
 							</tr>
 						))}
